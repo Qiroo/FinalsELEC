@@ -1,0 +1,30 @@
+﻿@{
+	ViewData["Title"] = "Products";
+}
+
+<body>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+
+        </tr>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>₱@item.Price</td>
+                        <td><a class="btn btn-info" asp-action="" asp-route-id="@item.ProductID">Add To Cart</a></td>
+                    </tr>
+                </tbody>
+            }
+        }
+        else
+        {
+            <p>The model is null.</p>
+        }
+    </table>
+</body>
